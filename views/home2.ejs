@@ -1,0 +1,23 @@
+<%- include("partials/header"); -%>
+    <div class="center">
+
+    <img src="images/darbuka.jpg" alt="ladies" height="700px" width="400px">
+    <h1>önceki yorumlar</h1>
+    <p> <%= startingContent %> </p>
+
+
+  <%  posts.forEach(function(post){ %>
+
+    <!-- <h1><%=post.title%></h1> -->
+    <p>
+    <%=post.content.substring(0, 300) %>
+    <!-- <a href="/posts/<%=post.title%>">Read More</a> -->
+    </p>
+
+
+    <% }) %>
+  </div>
+
+
+
+<%- include("./compose2.ejs"); -%>

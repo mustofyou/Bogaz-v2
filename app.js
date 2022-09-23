@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 let posts = [];
+let posts2 =[];
 
 app.get("/", function(req, res){
   res.render("home", {
@@ -28,6 +29,13 @@ app.get("/", function(req, res){
     posts: posts
     });
 });
+
+app.get("/darbukaci", function(req, res){
+  res.render("home2", {
+    startingContent: homeStartingContent,
+    posts: posts2
+    });
+})
 
 app.get("/about", function(req, res){
   res.render("about", {aboutContent: aboutContent});
@@ -44,7 +52,7 @@ app.get("/compose", function(req, res){
 app.post("/compose", function(req, res){
   const post = {
     title: req.body.postTitle,
-    content: req.body.postBody
+    content: req.body.postBody,
   };
 
   posts.push(post);
@@ -52,6 +60,20 @@ app.post("/compose", function(req, res){
   res.redirect("/");
 
 });
+
+app.post("/compose2", function(req, res){
+  const post = {
+    title: req.body.postTitle,
+    content: req.body.postBody,
+  };
+
+  posts2.push(post);
+
+  res.redirect("/darbukaci");
+
+});
+
+
 
 app.get("/posts/:postName", function(req, res){
   const requestedTitle = _.lowerCase(req.params.postName);
