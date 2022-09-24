@@ -3,6 +3,14 @@ html {
   position: relative;
 }
 
+.body1{
+    background-color: #54d1ff;
+}
+
+.body2{
+    background-color: #e59a35;
+}
+
 .center{
   text-align: center;
 }
